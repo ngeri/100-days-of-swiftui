@@ -1,0 +1,15 @@
+on: push
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        project: ["WeSplit", "Exchange"]
+    steps:
+    - name: Checkout project  
+      uses: actions/checkout@v1
+    - name: Build the application
+      run: |
+        sudo xcode-select -s /Applications/Xcode_11.app
+        set -o pipefail && xcodebuild -project ${{matrix.project}}/${{matrix.project}}.xcodeproj -scheme ${{matrix.project}} -destination "platform=iOS Simulator,name=iPhone 11 Pro" | xcpretty --color --simple
