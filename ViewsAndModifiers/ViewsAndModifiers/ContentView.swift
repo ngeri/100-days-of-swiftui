@@ -167,6 +167,29 @@ struct CustomContainersView: View {
     }
 }
 
+/// Challange 1
+struct Challange1: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+            .padding()
+    }
+}
+
+extension View {
+    func challange1Style() -> some View{
+        modifier(Challange1())
+    }
+}
+
+struct Challange1View: View {
+    var body: some View {
+        Text("Challange 1")
+            .challange1Style()
+    }
+}
+
 struct Content_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -177,6 +200,7 @@ struct Content_Previews: PreviewProvider {
             ViewsCompositionView()
             CustomModifiersView()
             CustomContainersView()
+            Challange1View()
         }
     }
 }
