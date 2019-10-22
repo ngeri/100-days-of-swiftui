@@ -6,7 +6,7 @@ jobs:
     runs-on: macOS-latest
     strategy:
       matrix:
-        project: ["WeSplit", "Exchange", "GuessTheFlag", "ViewsAndModifiers", "RockPaperScissors", "BetterRest"]
+        project: ["WeSplit", "Exchange", "GuessTheFlag", "ViewsAndModifiers", "RockPaperScissors", "BetterRest", "WordScramble"]
     steps:
     - name: Checkout project  
       uses: actions/checkout@v1
