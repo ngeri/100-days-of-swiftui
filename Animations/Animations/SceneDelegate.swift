@@ -20,7 +20,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView8()
+        let contentView = NavigationView {
+            List {
+                NavigationLink(destination: ContentView1()) { Text("Row 1") }
+                NavigationLink(destination: ContentView2()) { Text("Row 2") }
+                NavigationLink(destination: ContentView3()) { Text("Row 3") }
+                NavigationLink(destination: ContentView4()) { Text("Row 4") }
+                NavigationLink(destination: ContentView5()) { Text("Row 5") }
+                NavigationLink(destination: ContentView6()) { Text("Row 6") }
+                NavigationLink(destination: ContentView7()) { Text("Row 7") }
+                NavigationLink(destination: ContentView8()) { Text("Row 8") }
+            }
+            .navigationBarTitle("Nice animations")
+        }
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

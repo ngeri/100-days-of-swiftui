@@ -166,7 +166,7 @@ struct CornerRotateModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content.rotationEffect(.degrees(amount), anchor: anchor)
-        .clipped()
+            .clipped()
     }
 }
 
@@ -200,14 +200,18 @@ struct ContentView8: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView1()
-            ContentView2()
-            ContentView3()
-            ContentView4()
-            ContentView5()
-            ContentView6()
-            ContentView7()
+        NavigationView {
+            List {
+                NavigationLink(destination: ContentView1()) { Text("Row 1") }
+                NavigationLink(destination: ContentView2()) { Text("Row 2") }
+                NavigationLink(destination: ContentView3()) { Text("Row 3") }
+                NavigationLink(destination: ContentView4()) { Text("Row 4") }
+                NavigationLink(destination: ContentView5()) { Text("Row 5") }
+                NavigationLink(destination: ContentView6()) { Text("Row 6") }
+                NavigationLink(destination: ContentView7()) { Text("Row 7") }
+                NavigationLink(destination: ContentView8()) { Text("Row 8") }
+            }
+            .navigationBarTitle("Nice animations")
         }
     }
 }

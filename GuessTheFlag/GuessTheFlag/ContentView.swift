@@ -8,8 +8,21 @@
 
 import SwiftUI
 
+struct Shake: GeometryEffect {
+    var amount: CGFloat = 12
+    var shakesPerUnit = 3
+    var animatableData: CGFloat
+
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        ProjectionTransform(CGAffineTransform(translationX: amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)), y: 0))
+    }
+}
+
 struct FlagImage: View {
     var imageName: String
+    var rotation: Double
+    var fade: Double
+    var shake: CGFloat
 
     var body: some View {
         Image(imageName)
@@ -17,6 +30,9 @@ struct FlagImage: View {
             .clipShape(Capsule())
             .overlay(Capsule().stroke(Color.black))
             .shadow(color: .black, radius: 2)
+            .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+            .opacity(fade)
+            .modifier(Shake(animatableData: shake))
     }
 }
 
@@ -27,6 +43,11 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
     @State private var score = 0
+    
+    @State private var buttonRotations: [Double] = [0, 0, 0]
+    @State private var buttonFades: [Double] = [1, 1, 1]
+    @State private var wrong: [CGFloat] = [0, 0, 0]
+    @State private var disabled = false
     
     var body: some View {
         ZStack {
@@ -49,13 +70,15 @@ struct ContentView: View {
                     Button(action: {
                         self.flagTapped(number)
                     }) {
-                        FlagImage(imageName: self.countries[number])
+                        FlagImage(imageName: self.countries[number], rotation: self.buttonRotations[number], fade: self.buttonFades[number], shake: self.wrong[number])
+                            .animation(Animation.default.delay(0.25))
                     }
                 }
                 
                 Spacer()
             }
         }
+        .disabled(disabled)
         .alert(isPresented: $showingScore) {
             Alert(title: Text(scoreTitle), message: Text("Your score is \(self.score)"), dismissButton: .default(Text("Continue")) {
                 self.askQuestion()
@@ -67,15 +90,27 @@ struct ContentView: View {
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
+            self.buttonRotations[number] += 360
+            self.buttonFades = [0.25, 0.25, 0.25]
+            self.buttonFades[number] = 1
         } else {
+            self.buttonFades = [0.25, 0.25, 0.25]
+            self.wrong[number] += 1
             scoreTitle = "Wrong! That's the flag of \(self.countries[number])"
         }
-        showingScore = true
+        self.disabled = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.disabled = false
+            self.showingScore = true
+        }
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        withAnimation {
+            self.buttonFades = [1, 1, 1]
+        }
     }
 }
 
