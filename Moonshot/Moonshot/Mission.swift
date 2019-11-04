@@ -36,4 +36,10 @@ struct Mission: Codable, Identifiable {
             return "N/A"
         }
     }
+    
+    func formattedCrewNames(for astronauts: [Astronaut]) -> String {
+        ListFormatter().string(from: crew.compactMap { member in
+            astronauts.first(where: { $0.id == member.name })?.name
+        }) ?? ""
+    }
 }

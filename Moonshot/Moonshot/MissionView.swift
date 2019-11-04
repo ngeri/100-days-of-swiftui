@@ -33,11 +33,14 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(maxWidth: geo.size.width * 0.7)
                     
+                    Text(self.mission.formattedLaunchDate)
+                        .padding()
+                    
                     Text(self.mission.description)
                         .padding()
                     
                     ForEach(self.astronauts, id: \.role) { crewMember in
-                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut)) {
+                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut, missions: Bundle.main.decode("missions.json"))) {
                             HStack {
                                 Image(crewMember.astronaut.id)
                                     .resizable()
