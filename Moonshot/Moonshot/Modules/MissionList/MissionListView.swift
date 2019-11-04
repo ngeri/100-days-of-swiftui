@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MissionListView: View {
     @State private var isShowingNames = false
     
     private let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
@@ -42,6 +42,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MissionListView()
     }
 }
