@@ -14,6 +14,7 @@
 		253E14672371CD790073C522 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253E14662371CD790073C522 /* Preview Assets.xcassets */; };
 		253E146A2371CD790073C522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 253E14682371CD790073C522 /* LaunchScreen.storyboard */; };
 		258AEF732373455300FC5C65 /* SecondDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258AEF722373455300FC5C65 /* SecondDay.swift */; };
+		25DBEF3B2374A12800807A07 /* ThirdDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBEF3A2374A12800807A07 /* ThirdDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		253E14692371CD790073C522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		253E146B2371CD790073C522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		258AEF722373455300FC5C65 /* SecondDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDay.swift; sourceTree = "<group>"; };
+		25DBEF3A2374A12800807A07 /* ThirdDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				253E145F2371CD780073C522 /* SceneDelegate.swift */,
 				253E14612371CD780073C522 /* FirstDay.swift */,
 				258AEF722373455300FC5C65 /* SecondDay.swift */,
+				25DBEF3A2374A12800807A07 /* ThirdDay.swift */,
 				253E14632371CD790073C522 /* Assets.xcassets */,
 				253E14682371CD790073C522 /* LaunchScreen.storyboard */,
 				253E146B2371CD790073C522 /* Info.plist */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25DBEF3B2374A12800807A07 /* ThirdDay.swift in Sources */,
 				258AEF732373455300FC5C65 /* SecondDay.swift in Sources */,
 				253E145E2371CD780073C522 /* AppDelegate.swift in Sources */,
 				253E14602371CD780073C522 /* SceneDelegate.swift in Sources */,
