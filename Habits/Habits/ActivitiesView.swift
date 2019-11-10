@@ -24,6 +24,7 @@ struct ActivitiesView: View {
                                 Text(activity.description)
                                     .font(.caption)
                             }
+                            Spacer()
                             Text("\(activity.count)")
                         }
                         
