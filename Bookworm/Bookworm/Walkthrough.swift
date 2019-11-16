@@ -90,8 +90,8 @@ struct PushButton: View {
 //    }
 //}
 
-struct Walkthrough_Previews: PreviewProvider {
-    static var previews: some View {
-        Walkthrough()
-    }
-}
+//struct Walkthrough_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Walkthrough()
+//    }
+//}
