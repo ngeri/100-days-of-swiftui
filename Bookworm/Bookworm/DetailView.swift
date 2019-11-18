@@ -43,6 +43,9 @@ struct DetailView: View {
                 RatingView(rating: .constant(Int(self.book.rating)))
                     .font(.largeTitle)
 
+                Text(DateFormatter.df.string(from: self.book.date))
+                    .padding()
+
                 Spacer()
             }
         }
@@ -85,6 +88,22 @@ private extension Book {
         book.genre = "Fantasy"
         book.rating = 4
         book.review = "This was a great book; I really enjoyed it."
+        book.date = Date()
         return book
+    }
+}
+
+private extension DateFormatter {
+    static let df: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .medium
+        return df
+    }()
+
+    func string(from date: Date?) -> String {
+        guard let date = date else {
+            return "No date"
+        }
+        return self.string(from: date)
     }
 }
