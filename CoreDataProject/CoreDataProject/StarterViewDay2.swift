@@ -57,7 +57,7 @@ struct StarterView4: View {
 
     var body: some View {
         VStack {
-            FilteredList(predicate: predicate) { (singer: Singer) in
+            FilteredList(predicate: predicate, sortDescriptors: [NSSortDescriptor(key: (\Singer.lastName).stringValue, ascending: false)]) { (singer: Singer) in
                 Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
             }
 
@@ -78,11 +78,11 @@ struct StarterView4: View {
             }
 
             Button("Show A") {
-                self.predicate = NSPredicate(format: "%K BEGINSWITH %@", (\Singer.lastName).stringValue, "A")
+                self.predicate = NSPredicate.beginsWith.resolvePredicate(key: \Singer.lastName, value: "A")
             }
             .padding()
             Button("Show S") {
-                self.predicate = NSPredicate(format: "%K BEGINSWITH %@", #keyPath(Singer.lastName), "S")
+                self.predicate = NSPredicate.beginsWith.resolvePredicate(key: \Singer.lastName, value: "S")
             }
             .padding()
             Button("Show all") {
@@ -150,4 +150,16 @@ private extension ReferenceWritableKeyPath {
     var stringValue: String {
         NSExpression(forKeyPath: self).keyPath
     }
+}
+
+extension NSPredicate {
+    enum PredicateType: String {
+        case beginsWith = "BEGINSWITH"
+
+        func resolvePredicate<T, U>(key: ReferenceWritableKeyPath<T, U?>, value: String) -> NSPredicate {
+            return NSPredicate(format: "%K \(rawValue) %@", key.stringValue, value)
+        }
+    }
+
+    static let beginsWith: PredicateType = .beginsWith
 }
