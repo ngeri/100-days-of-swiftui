@@ -17,7 +17,7 @@ final class UserDetailViewModel: ObservableObject {
     init(user: User, userService: UserService = UserService()) {
         self.user = user
         self.userService = userService
-        fetchFriends(with: user.friends.map { $0.id } )
+        fetchFriends(with: user.friends?.map { $0 as String } ?? [])
     }
 
     private func fetchFriends(with ids: [String]) {

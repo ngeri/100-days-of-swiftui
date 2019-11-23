@@ -16,11 +16,11 @@ struct UserService {
 
     private let session: URLSession
 
-    init(session: URLSession = .shared) {
+    init(session: URLSession = .shared, dataService: CoreDataService = CoreDataService.shared) {
         self.session = session
     }
 
-    func fetchUsers(completion: @escaping (Result<Users, UserServiceError>) -> Void) {
+    func fetchUsers(completion: @escaping (Result<[User], UserServiceError>) -> Void) {
         let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json")!
 
         session.dataTask(with: url) { (data, response, error) in
@@ -38,7 +38,7 @@ struct UserService {
             }
             if let data = data {
                 do {
-                    let users = try decoder.decode(Users.self, from: data)
+                    let users = try decoder.decode([User].self, from: data)
                     DispatchQueue.main.async {
                         completion(.success(users))
                     }
@@ -55,11 +55,11 @@ struct UserService {
         }.resume()
     }
 
-    func fetchFriends(with ids: [String], completion: @escaping (Result<Users, UserServiceError>) -> Void) {
+    func fetchFriends(with ids: [String], completion: @escaping (Result<[User], UserServiceError>) -> Void) {
         fetchUsers { result in
             switch result {
             case .success(let users):
-                completion(.success(users.filter { ids.contains($0.id) }))
+                completion(.success(users.filter { ids.contains($0.id ?? "") }))
             case .failure(let error):
                 completion(.failure(error))
             }

@@ -11,7 +11,6 @@ import SwiftUI
 struct UserListView: View {
     // MARK: - View model
     @ObservedObject var viewModel: UserListViewModel
-    private var users: [User] { return viewModel.users }
 
     // MARK: - Body
     var body: some View {
@@ -27,7 +26,7 @@ struct UserListView: View {
     // MARK: - Subviews
     private var list: some View {
         List {
-            ForEach(users, id: \.id) { user in
+            ForEach(viewModel.users, id: \.id) { user in
                 NavigationLink(destination: UserDetailView(viewModel: UserDetailViewModel(user: user))) {
                     VStack(alignment: .leading) {
                         Text(user.name)

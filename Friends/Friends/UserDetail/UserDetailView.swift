@@ -6,6 +6,7 @@
 //  Copyright © 2019. Gergely Németh. All rights reserved.
 //
 
+import CoreData
 import SwiftUI
 
 struct UserDetailView: View {
@@ -29,7 +30,7 @@ struct UserDetailView: View {
                 Text("\(user.age)")
             }
             Section(header: Text("Registered")) {
-                Text(dateFormatter.string(from: user.registered))
+                Text(dateFormatter.string(from: user.registered ?? Date()))
             }
             Section(header: Text("About")) {
                 Text("\(user.about)")
@@ -67,18 +68,4 @@ struct UserDetailView_Previews: PreviewProvider {
             UserDetailView(viewModel: viewModel)
         }
     }
-}
-
-private extension User {
-    static let mock = User(id: "id",
-                           isActive: true,
-                           name: "Gergely Nemeth",
-                           age: 24,
-                           company: "Black Swan",
-                           email: "geri.nemeth@blackswan.com",
-                           address: "8438, Veszpremvarsany Szolo utca 9",
-                           about: "Jo fej gyerek",
-                           registered: Date(timeIntervalSince1970: 1574035200),
-                           tags: [],
-                           friends: [])
 }

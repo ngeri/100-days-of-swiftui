@@ -15,11 +15,13 @@
 		950E678923898AAE00962270 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E678823898AAE00962270 /* UserListView.swift */; };
 		950E678C23898C0100962270 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E678B23898C0100962270 /* UserListViewModel.swift */; };
 		950E678E23898C1A00962270 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E678D23898C1A00962270 /* UserService.swift */; };
-		950E679123898C2D00962270 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E679023898C2D00962270 /* User.swift */; };
-		950E679323898C5800962270 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E679223898C5800962270 /* Friend.swift */; };
 		954E1F902389BA4F0005FA29 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E1F8F2389BA4F0005FA29 /* UserDetailView.swift */; };
 		954E1F922389BA590005FA29 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E1F912389BA590005FA29 /* UserDetailViewModel.swift */; };
 		954E1F952389BF950005FA29 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E1F942389BF950005FA29 /* ActivityIndicator.swift */; };
+		954E1F972389E03C0005FA29 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E1F962389E03C0005FA29 /* CoreDataService.swift */; };
+		954E1F9B2389E27B0005FA29 /* Friends.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 954E1F992389E27B0005FA29 /* Friends.xcdatamodeld */; };
+		954E1FA42389EDA80005FA29 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E1FA22389EDA80005FA29 /* User+CoreDataClass.swift */; };
+		954E1FA52389EDA80005FA29 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E1FA32389EDA80005FA29 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +35,13 @@
 		950E678823898AAE00962270 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		950E678B23898C0100962270 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		950E678D23898C1A00962270 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		950E679023898C2D00962270 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		950E679223898C5800962270 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		954E1F8F2389BA4F0005FA29 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		954E1F912389BA590005FA29 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		954E1F942389BF950005FA29 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		954E1F962389E03C0005FA29 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		954E1F9A2389E27B0005FA29 /* Friends.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Friends.xcdatamodel; sourceTree = "<group>"; };
+		954E1FA22389EDA80005FA29 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		954E1FA32389EDA80005FA29 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,11 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				950E677423898A7100962270 /* AppDelegate.swift */,
-				950E677A23898A7300962270 /* Assets.xcassets */,
-				950E678223898A7300962270 /* Info.plist */,
-				950E677F23898A7300962270 /* LaunchScreen.storyboard */,
 				950E678F23898C2100962270 /* Model */,
-				950E677C23898A7300962270 /* Preview Content */,
+				954E1F982389E0EE0005FA29 /* Resources */,
 				950E677623898A7100962270 /* SceneDelegate.swift */,
 				954E1F8E2389BA340005FA29 /* UserDetail */,
 				950E678A23898B6600962270 /* UserList */,
@@ -104,8 +105,9 @@
 		950E678F23898C2100962270 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				950E679223898C5800962270 /* Friend.swift */,
-				950E679023898C2D00962270 /* User.swift */,
+				954E1F962389E03C0005FA29 /* CoreDataService.swift */,
+				954E1FA22389EDA80005FA29 /* User+CoreDataClass.swift */,
+				954E1FA32389EDA80005FA29 /* User+CoreDataProperties.swift */,
 				950E678D23898C1A00962270 /* UserService.swift */,
 			);
 			path = Model;
@@ -126,6 +128,18 @@
 				954E1F942389BF950005FA29 /* ActivityIndicator.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		954E1F982389E0EE0005FA29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				950E677A23898A7300962270 /* Assets.xcassets */,
+				954E1F992389E27B0005FA29 /* Friends.xcdatamodeld */,
+				950E678223898A7300962270 /* Info.plist */,
+				950E677F23898A7300962270 /* LaunchScreen.storyboard */,
+				950E677C23898A7300962270 /* Preview Content */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,12 +215,14 @@
 			files = (
 				954E1F922389BA590005FA29 /* UserDetailViewModel.swift in Sources */,
 				950E677523898A7100962270 /* AppDelegate.swift in Sources */,
-				950E679323898C5800962270 /* Friend.swift in Sources */,
+				954E1FA52389EDA80005FA29 /* User+CoreDataProperties.swift in Sources */,
 				950E678E23898C1A00962270 /* UserService.swift in Sources */,
-				950E679123898C2D00962270 /* User.swift in Sources */,
 				954E1F952389BF950005FA29 /* ActivityIndicator.swift in Sources */,
 				954E1F902389BA4F0005FA29 /* UserDetailView.swift in Sources */,
+				954E1F9B2389E27B0005FA29 /* Friends.xcdatamodeld in Sources */,
 				950E678C23898C0100962270 /* UserListViewModel.swift in Sources */,
+				954E1F972389E03C0005FA29 /* CoreDataService.swift in Sources */,
+				954E1FA42389EDA80005FA29 /* User+CoreDataClass.swift in Sources */,
 				950E677723898A7100962270 /* SceneDelegate.swift in Sources */,
 				950E678923898AAE00962270 /* UserListView.swift in Sources */,
 			);
@@ -345,10 +361,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"Friends/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Friends/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Friends/Info.plist;
+				INFOPLIST_FILE = Friends/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,10 +382,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"Friends/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Friends/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Friends/Info.plist;
+				INFOPLIST_FILE = Friends/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,6 +420,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		954E1F992389E27B0005FA29 /* Friends.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				954E1F9A2389E27B0005FA29 /* Friends.xcdatamodel */,
+			);
+			currentVersion = 954E1F9A2389E27B0005FA29 /* Friends.xcdatamodel */;
+			path = Friends.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 950E676923898A7100962270 /* Project object */;
 }
