@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct StarterView1: View {
     @State private var blurAmount: CGFloat = 0 {
         didSet {
             print("New value is \(blurAmount)")
@@ -60,7 +60,7 @@ struct ContentView2: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            StarterView1()
             ContentView2()
         }
     }
