@@ -39,19 +39,10 @@ struct StarterView2: View {
     }
 }
 
-struct ImagePicker: UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        return picker
-    }
-
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
-    }
-}
-
 struct StarterView22: View {
     @State private var image: Image?
     @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
 
     var body: some View {
         VStack {
@@ -63,9 +54,28 @@ struct StarterView22: View {
                self.showingImagePicker = true
             }
         }
-        .sheet(isPresented: $showingImagePicker) {
-            ImagePicker()
+        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+            ImagePicker(image: self.$inputImage)
         }
+    }
+
+    func loadImage() {
+        guard let inputImage = inputImage else {
+            return
+        }
+        image = Image(uiImage: inputImage)
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: inputImage)
+    }
+}
+
+class ImageSaver: NSObject {
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
+    }
+
+    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        print("Save finished!")
     }
 }
 

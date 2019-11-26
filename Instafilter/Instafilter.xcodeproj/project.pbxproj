@@ -14,6 +14,8 @@
 		25AE12F3238B249200F47E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25AE12F2238B249200F47E9A /* Assets.xcassets */; };
 		25AE12F6238B249200F47E9A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25AE12F5238B249200F47E9A /* Preview Assets.xcassets */; };
 		25AE12F9238B249200F47E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AE12F7238B249200F47E9A /* LaunchScreen.storyboard */; };
+		9551D0DB238D931B000573AA /* StarterView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9551D0DA238D931B000573AA /* StarterView3.swift */; };
+		9551D0DD238D935A000573AA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9551D0DC238D935A000573AA /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		25AE12F5238B249200F47E9A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		25AE12F8238B249200F47E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25AE12FA238B249200F47E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9551D0DA238D931B000573AA /* StarterView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterView3.swift; sourceTree = "<group>"; };
+		9551D0DC238D935A000573AA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +66,12 @@
 				25AE12EE238B249100F47E9A /* SceneDelegate.swift */,
 				25AE12F0238B249100F47E9A /* StarterView1.swift */,
 				259716DE238C711700F2A09B /* StarterView2.swift */,
+				9551D0DA238D931B000573AA /* StarterView3.swift */,
 				25AE12F2238B249200F47E9A /* Assets.xcassets */,
 				25AE12F7238B249200F47E9A /* LaunchScreen.storyboard */,
 				25AE12FA238B249200F47E9A /* Info.plist */,
 				25AE12F4238B249200F47E9A /* Preview Content */,
+				9551D0DC238D935A000573AA /* ImagePicker.swift */,
 			);
 			path = Instafilter;
 			sourceTree = "<group>";
@@ -150,7 +156,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				25AE12ED238B249100F47E9A /* AppDelegate.swift in Sources */,
+				9551D0DB238D931B000573AA /* StarterView3.swift in Sources */,
 				25AE12EF238B249100F47E9A /* SceneDelegate.swift in Sources */,
+				9551D0DD238D935A000573AA /* ImagePicker.swift in Sources */,
 				25AE12F1238B249100F47E9A /* StarterView1.swift in Sources */,
 				259716DF238C711700F2A09B /* StarterView2.swift in Sources */,
 			);
