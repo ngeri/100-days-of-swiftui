@@ -67,15 +67,15 @@ struct StarterView22: View {
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: inputImage)
     }
-}
+    
+    class ImageSaver: NSObject {
+        func writeToPhotoAlbum(image: UIImage) {
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
+        }
 
-class ImageSaver: NSObject {
-    func writeToPhotoAlbum(image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
-    }
-
-    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        print("Save finished!")
+        @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+            print("Save finished!")
+        }
     }
 }
 
