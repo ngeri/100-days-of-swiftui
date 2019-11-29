@@ -10,20 +10,32 @@ import CoreImage
 import CoreImage.CIFilterBuiltins
 import SwiftUI
 
+
 struct ContentView: View {
     @State private var image: Image?
     @State private var filterIntensity = 0.5
+    @State private var filterIntensitySecondary = 0.5
     @State private var showingFilterSheet = false
     @State private var showingImagePicker = false
+    @State private var showingError = false
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
-    @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
+    @State private var currentFilter: CIFilter = CIFilter.vignette()
     let context = CIContext()
 
-    var intensity: Binding<Double> { Binding<Double>(
+    var intensity1: Binding<Double> { Binding<Double>(
         get: { self.filterIntensity },
         set: {
             self.filterIntensity = $0
+            self.applyProcessing() }
+        )
+    }
+
+    var intensity2: Binding<Double> { Binding<Double>(
+        get: { self.filterIntensitySecondary },
+        set: {
+            self.filterIntensitySecondary = $0
+            print($0)
             self.applyProcessing() }
         )
     }
@@ -51,7 +63,12 @@ struct ContentView: View {
 
                 HStack {
                     Text("Intensity")
-                    Slider(value: intensity)
+                    Slider(value: intensity1)
+                }.padding(.vertical)
+
+                HStack {
+                    Text("2nd Intensity")
+                    Slider(value: intensity2)
                 }.padding(.vertical)
 
                 HStack {
@@ -67,10 +84,12 @@ struct ContentView: View {
                             print("Success")
                         }
                         imageSaver.errorHandler = {
-                            print("Ooops \($0?.localizedDescription)")
+                            print("Ooops \($0?.localizedDescription ?? "")")
                         }
                         if let image = self.processedImage {
                             imageSaver.writeToPhotoAlbum(image: image)
+                        } else {
+                            self.showingError = true
                         }
                     }
                 }
@@ -80,8 +99,11 @@ struct ContentView: View {
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }
+            .alert(isPresented: $showingError) {
+                Alert(title: Text("No image to save"), message: Text("Please select an image first!"), dismissButton: .default(Text("Ok")))
+            }
             .actionSheet(isPresented: $showingFilterSheet) {
-                ActionSheet(title: Text("Select a filter"), buttons: [
+                ActionSheet(title: Text("Select a filter"), message: Text(currentFilter.description), buttons: [
                     .default(Text("Crystallize")) { self.setFilter(CIFilter.crystallize()) },
                     .default(Text("Edges")) { self.setFilter(CIFilter.edges()) },
                     .default(Text("GaussianBlur")) { self.setFilter(CIFilter.gaussianBlur()) },
@@ -105,7 +127,7 @@ struct ContentView: View {
 
     func applyProcessing() {
         if currentFilter.inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
-        if currentFilter.inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }
+        if currentFilter.inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterIntensitySecondary * 20, forKey: kCIInputRadiusKey) }
         if currentFilter.inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
 
         guard let outputImage = currentFilter.outputImage else { return }
