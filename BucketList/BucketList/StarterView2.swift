@@ -7,11 +7,12 @@
 //
 
 import LocalAuthentication
+import MapKit
 import SwiftUI
 
 struct StarterView2: View {
     var body: some View {
-        MapView()
+        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails: .constant(false), annotations: [MKPointAnnotation.example])
             .edgesIgnoringSafeArea(.all)
     }
 }
