@@ -44,7 +44,7 @@ struct StarterView2_2: View {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        print("\(error)")
+                        print("\(error?.localizedDescription ?? "")")
                     }
                 }
             }
