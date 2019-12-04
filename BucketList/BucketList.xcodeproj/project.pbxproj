@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2526C97423982BA200B38581 /* MKPointAnnotation-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526C97323982BA200B38581 /* MKPointAnnotation-Codable.swift */; };
 		2534156B2392EA8300A27F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534156A2392EA8300A27F3D /* AppDelegate.swift */; };
 		2534156D2392EA8300A27F3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534156C2392EA8300A27F3D /* SceneDelegate.swift */; };
 		2534156F2392EA8300A27F3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534156E2392EA8300A27F3D /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2526C97323982BA200B38581 /* MKPointAnnotation-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-Codable.swift"; sourceTree = "<group>"; };
 		253415672392EA8300A27F3D /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2534156A2392EA8300A27F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2534156C2392EA8300A27F3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				2534156A2392EA8300A27F3D /* AppDelegate.swift */,
 				2534156C2392EA8300A27F3D /* SceneDelegate.swift */,
 				2534156E2392EA8300A27F3D /* ContentView.swift */,
+				2526C97323982BA200B38581 /* MKPointAnnotation-Codable.swift */,
 				253415702392EA8400A27F3D /* Assets.xcassets */,
 				253415752392EA8400A27F3D /* LaunchScreen.storyboard */,
 				253415782392EA8400A27F3D /* Info.plist */,
@@ -170,6 +173,7 @@
 				25FA3C422396D14100311AB8 /* EditView.swift in Sources */,
 				2534156D2392EA8300A27F3D /* SceneDelegate.swift in Sources */,
 				25A9FD8D23944C3500242D8A /* StarterView1.swift in Sources */,
+				2526C97423982BA200B38581 /* MKPointAnnotation-Codable.swift in Sources */,
 				2534156F2392EA8300A27F3D /* ContentView.swift in Sources */,
 				25A9FD8B23944C2900242D8A /* StarterView2.swift in Sources */,
 				25FA3C402396D0FB00311AB8 /* MKPointAnnotation_ObservableObject.swift in Sources */,
