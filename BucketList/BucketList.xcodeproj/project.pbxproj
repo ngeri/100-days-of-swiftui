@@ -54,9 +54,6 @@
 		2534155E2392EA8300A27F3D = {
 			isa = PBXGroup;
 			children = (
-				25FA3C3F2396D0FB00311AB8 /* MKPointAnnotation_ObservableObject.swift */,
-				25FA3C412396D14100311AB8 /* EditView.swift */,
-				25FA3C432396D24600311AB8 /* Result.swift */,
 				253415692392EA8300A27F3D /* BucketList */,
 				253415682392EA8300A27F3D /* Products */,
 			);
@@ -74,16 +71,19 @@
 			isa = PBXGroup;
 			children = (
 				2534156A2392EA8300A27F3D /* AppDelegate.swift */,
-				2534156C2392EA8300A27F3D /* SceneDelegate.swift */,
-				2534156E2392EA8300A27F3D /* ContentView.swift */,
-				2526C97323982BA200B38581 /* MKPointAnnotation-Codable.swift */,
 				253415702392EA8400A27F3D /* Assets.xcassets */,
-				253415752392EA8400A27F3D /* LaunchScreen.storyboard */,
+				2534156E2392EA8300A27F3D /* ContentView.swift */,
+				25FA3C412396D14100311AB8 /* EditView.swift */,
 				253415782392EA8400A27F3D /* Info.plist */,
+				253415752392EA8400A27F3D /* LaunchScreen.storyboard */,
+				25A9FD9023944CDA00242D8A /* MapView.swift */,
+				25FA3C3F2396D0FB00311AB8 /* MKPointAnnotation_ObservableObject.swift */,
+				2526C97323982BA200B38581 /* MKPointAnnotation-Codable.swift */,
 				253415722392EA8400A27F3D /* Preview Content */,
+				25FA3C432396D24600311AB8 /* Result.swift */,
+				2534156C2392EA8300A27F3D /* SceneDelegate.swift */,
 				25A9FD8C23944C3500242D8A /* StarterView1.swift */,
 				25A9FD8A23944C2900242D8A /* StarterView2.swift */,
-				25A9FD9023944CDA00242D8A /* MapView.swift */,
 			);
 			path = BucketList;
 			sourceTree = "<group>";
