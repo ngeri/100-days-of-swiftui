@@ -25,7 +25,9 @@ struct ContentView: View {
                 Section(header: Text("Desired amount of sleep")) {
                     Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
                         Text("\(sleepAmount, specifier: "%g") hours")
+                        .labelsHidden()
                     }
+                    .accessibility(label: Text("\(sleepAmount, specifier: "%g") hours"))
                 }
                 
                 Section {
