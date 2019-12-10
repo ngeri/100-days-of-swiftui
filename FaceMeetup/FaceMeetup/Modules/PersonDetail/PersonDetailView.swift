@@ -1,11 +1,4 @@
-//
-//  PersonDetailView.swift
-//  FaceMeetup
-//
-//  Created by Németh Gergely on 2019. 12. 10..
-//  Copyright © 2019. Gergely Németh. All rights reserved.
-//
-
+import MapKit
 import SwiftUI
 
 struct PersonDetailView: View {
@@ -13,10 +6,11 @@ struct PersonDetailView: View {
 
     var body: some View {
         VStack {
+            Text(person.name)
             Image(uiImage: person.picture)
                 .resizable()
                 .scaledToFit()
-            Text(person.name)
+            MapView(centerCoordinate: person.location, location: MKPointAnnotation(__coordinate: person.location))
             Spacer()
         }
     }

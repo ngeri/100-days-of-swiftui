@@ -10,11 +10,13 @@
 		258C2C1F239EF2AE002ED071 /* PeopleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C1E239EF2AE002ED071 /* PeopleListViewModel.swift */; };
 		258C2C2A239EF600002ED071 /* PersonListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C29239EF600002ED071 /* PersonListItem.swift */; };
 		258C2C2C239EF80E002ED071 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C2B239EF80E002ED071 /* ImagePicker.swift */; };
-		258C2C31239EFE4C002ED071 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C2F239EFE4C002ED071 /* Person+CoreDataClass.swift */; };
-		258C2C32239EFE4C002ED071 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C30239EFE4C002ED071 /* Person+CoreDataProperties.swift */; };
 		258C2C35239F003C002ED071 /* PersonAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C34239F003C002ED071 /* PersonAddView.swift */; };
 		258C2C37239F0045002ED071 /* PersonAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C36239F0045002ED071 /* PersonAddViewModel.swift */; };
 		258C2C39239F00B6002ED071 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C2C38239F00B6002ED071 /* DataServiceMock.swift */; };
+		25B48E6F23A01C2E00A1D5B2 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B48E6D23A01C2E00A1D5B2 /* Person+CoreDataClass.swift */; };
+		25B48E7023A01C2E00A1D5B2 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B48E6E23A01C2E00A1D5B2 /* Person+CoreDataProperties.swift */; };
+		25B48E7223A01C8100A1D5B2 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B48E7123A01C8100A1D5B2 /* LocationFetcher.swift */; };
+		25B48E7423A01D5A00A1D5B2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B48E7323A01D5A00A1D5B2 /* MapView.swift */; };
 		25FECCFD239F047E004FA452 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FECCFC239F047E004FA452 /* FileManagerExtensions.swift */; };
 		25FECD00239F0A76004FA452 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FECCFF239F0A76004FA452 /* PersonDetailView.swift */; };
 		95CE8889239EAE57007C113D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE8888239EAE57007C113D /* AppDelegate.swift */; };
@@ -31,11 +33,13 @@
 		258C2C1E239EF2AE002ED071 /* PeopleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewModel.swift; sourceTree = "<group>"; };
 		258C2C29239EF600002ED071 /* PersonListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListItem.swift; sourceTree = "<group>"; };
 		258C2C2B239EF80E002ED071 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		258C2C2F239EFE4C002ED071 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
-		258C2C30239EFE4C002ED071 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		258C2C34239F003C002ED071 /* PersonAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonAddView.swift; sourceTree = "<group>"; };
 		258C2C36239F0045002ED071 /* PersonAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonAddViewModel.swift; sourceTree = "<group>"; };
 		258C2C38239F00B6002ED071 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
+		25B48E6D23A01C2E00A1D5B2 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		25B48E6E23A01C2E00A1D5B2 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		25B48E7123A01C8100A1D5B2 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		25B48E7323A01D5A00A1D5B2 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = ../../../BucketList/BucketList/MapView.swift; sourceTree = "<group>"; };
 		25FECCFC239F047E004FA452 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		25FECCFF239F0A76004FA452 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		95CE8885239EAE57007C113D /* FaceMeetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceMeetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				258C2C2B239EF80E002ED071 /* ImagePicker.swift */,
+				25B48E7323A01D5A00A1D5B2 /* MapView.swift */,
 			);
 			path = Componenets;
 			sourceTree = "<group>";
@@ -72,8 +77,8 @@
 		258C2C27239EF5AC002ED071 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				258C2C2F239EFE4C002ED071 /* Person+CoreDataClass.swift */,
-				258C2C30239EFE4C002ED071 /* Person+CoreDataProperties.swift */,
+				25B48E6D23A01C2E00A1D5B2 /* Person+CoreDataClass.swift */,
+				25B48E6E23A01C2E00A1D5B2 /* Person+CoreDataProperties.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				25FECCFC239F047E004FA452 /* FileManagerExtensions.swift */,
+				25B48E7123A01C8100A1D5B2 /* LocationFetcher.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -270,10 +276,12 @@
 				95CE88A0239EAE83007C113D /* CoreDataService.swift in Sources */,
 				258C2C2A239EF600002ED071 /* PersonListItem.swift in Sources */,
 				25FECD00239F0A76004FA452 /* PersonDetailView.swift in Sources */,
-				258C2C31239EFE4C002ED071 /* Person+CoreDataClass.swift in Sources */,
-				258C2C32239EFE4C002ED071 /* Person+CoreDataProperties.swift in Sources */,
+				25B48E6F23A01C2E00A1D5B2 /* Person+CoreDataClass.swift in Sources */,
+				25B48E7423A01D5A00A1D5B2 /* MapView.swift in Sources */,
 				258C2C2C239EF80E002ED071 /* ImagePicker.swift in Sources */,
+				25B48E7223A01C8100A1D5B2 /* LocationFetcher.swift in Sources */,
 				258C2C35239F003C002ED071 /* PersonAddView.swift in Sources */,
+				25B48E7023A01C2E00A1D5B2 /* Person+CoreDataProperties.swift in Sources */,
 				95CE888B239EAE57007C113D /* SceneDelegate.swift in Sources */,
 				95CE88A2239EAF05007C113D /* PeopleListView.swift in Sources */,
 				258C2C37239F0045002ED071 /* PersonAddViewModel.swift in Sources */,

@@ -1,3 +1,4 @@
+import MapKit
 import UIKit.UIImage
 import CoreData
 
@@ -40,16 +41,18 @@ final class CoreDataService {
 
 extension CoreDataService: PeopleListDataSource {
     func fetchPeopleList() throws -> [PersonListItem] {
-        try fetchPeople().map { PersonListItem(name: $0.name ?? "Unknown", picture: loadImage(with: $0.image ?? UUID()) ?? UIImage()) }
+        try fetchPeople().map { PersonListItem(name: $0.name ?? "Unknown", picture: loadImage(with: $0.image ?? UUID()) ?? UIImage(), location: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)) }
     }
 }
 
 extension CoreDataService: PersonAddService {
-    func addPerson(with name: String, image: UIImage) {
+    func addPerson(with name: String, image: UIImage, location: CLLocationCoordinate2D) {
         if let imageId = saveImageToDisk(image: image) {
             let person = Person(context: viewContext)
             person.name = name
             person.image = imageId
+            person.longitude = location.longitude
+            person.latitude = location.latitude
 
             saveContext()
         }

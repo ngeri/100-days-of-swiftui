@@ -1,3 +1,4 @@
+import MapKit
 import SwiftUI
 
 struct PersonAddView: View {
@@ -7,13 +8,15 @@ struct PersonAddView: View {
     @State private var inputImage: UIImage?
     @State private var name: String = ""
     @State private var showingImagePicker = false
+    @State private var location: CLLocationCoordinate2D?
+    private let locationFetcher = LocationFetcher()
 
     var body: some View {
         NavigationView {
             contentView
                 .navigationBarTitle(viewModel.navigationBarTitle)
                 .navigationBarItems(trailing: Button(action: {
-                    self.viewModel.addPerson(with: self.name, image: self.inputImage ?? UIImage())
+                    self.viewModel.addPerson(with: self.name, image: self.inputImage ?? UIImage(), location: self.location ?? CLLocationCoordinate2D(latitude: 0, longitude: 0))
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Save")
@@ -21,7 +24,12 @@ struct PersonAddView: View {
                 .sheet(isPresented: $showingImagePicker, onDismiss: imageChosen) {
                     ImagePicker(image: self.$inputImage)
                 }
+                .onAppear(perform: onAppear)
         }
+    }
+
+    private func onAppear() {
+        self.locationFetcher.start()
     }
 
     private var contentView: some View {
@@ -29,15 +37,14 @@ struct PersonAddView: View {
             TextField("Name", text: $name)
                 .padding()
             ZStack {
-                Rectangle()
-                    .fill(Color.secondary)
-                    .aspectRatio(1, contentMode: .fit)
-
                 if image != nil {
                     image?
                         .resizable()
                         .scaledToFit()
                 } else {
+                    Rectangle()
+                        .fill(Color.secondary)
+                        .aspectRatio(1, contentMode: .fit)
                     Text("Tap to select a picture")
                         .foregroundColor(.white)
                         .font(.headline)
@@ -46,7 +53,21 @@ struct PersonAddView: View {
             .onTapGesture {
                 self.showingImagePicker = true
             }
-            Spacer()
+            if location != nil {
+                MapView(centerCoordinate: location!, location: MKPointAnnotation(__coordinate: location!))
+            } else {
+                Button(action: {
+                    if let location = self.locationFetcher.lastKnownLocation {
+                        self.location = location
+                    } else {
+                        print("Your location is unknown")
+                    }
+                }) {
+                    Text("Read Location")
+                }
+                Spacer()
+            }
+
         }
     }
 
@@ -63,6 +84,6 @@ struct PersonAddView_Previews: PreviewProvider {
 }
 
 extension DataServiceMock: PersonAddService {
-    func addPerson(with name: String, image: UIImage) {
+    func addPerson(with name: String, image: UIImage, location: CLLocationCoordinate2D) {
     }
 }

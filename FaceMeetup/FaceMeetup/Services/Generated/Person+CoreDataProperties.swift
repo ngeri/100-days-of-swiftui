@@ -2,7 +2,7 @@
 //  Person+CoreDataProperties.swift
 //  FaceMeetup
 //
-//  Created by Németh Gergely on 2019. 12. 09..
+//  Created by Németh Gergely on 2019. 12. 10..
 //  Copyright © 2019. Gergely Németh. All rights reserved.
 //
 //
@@ -19,5 +19,7 @@ extension Person {
 
     @NSManaged public var image: UUID?
     @NSManaged public var name: String?
+    @NSManaged public var longitude: Double
+    @NSManaged public var latitude: Double
 
 }

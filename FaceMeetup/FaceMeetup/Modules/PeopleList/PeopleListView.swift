@@ -1,3 +1,4 @@
+import MapKit
 import SwiftUI
 
 struct PeopleListView: View {
@@ -47,9 +48,9 @@ struct PeopleListView_Previews: PreviewProvider {
 extension DataServiceMock: PeopleListDataSource {
     func fetchPeopleList() throws -> [PersonListItem] {
         [
-            PersonListItem(name: "N. G. 1", picture: UIImage(systemName: "plus")!),
-            PersonListItem(name: "N. G. 2", picture: UIImage(systemName: "plus")!),
-            PersonListItem(name: "N. G. 3", picture: UIImage(systemName: "plus")!)
+            PersonListItem(name: "N. G. 1", picture: UIImage(systemName: "plus")!, location: MKPointAnnotation.example.coordinate),
+            PersonListItem(name: "N. G. 2", picture: UIImage(systemName: "plus")!, location: MKPointAnnotation.example.coordinate),
+            PersonListItem(name: "N. G. 3", picture: UIImage(systemName: "plus")!, location: MKPointAnnotation.example.coordinate)
         ]
     }
 }

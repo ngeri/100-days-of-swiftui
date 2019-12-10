@@ -1,8 +1,9 @@
 import UIKit.UIImage
 import Combine
+import CoreLocation
 
 protocol PersonAddService {
-    func addPerson(with name: String, image: UIImage)
+    func addPerson(with name: String, image: UIImage, location: CLLocationCoordinate2D)
 }
 
 final class PersonAddViewModel: ObservableObject {
@@ -13,7 +14,7 @@ final class PersonAddViewModel: ObservableObject {
         self.personAddService = personAddService
     }
 
-    func addPerson(with name: String, image: UIImage) {
-        personAddService.addPerson(with: name, image: image)
+    func addPerson(with name: String, image: UIImage, location: CLLocationCoordinate2D) {
+        personAddService.addPerson(with: name, image: image, location: location)
     }
 }
