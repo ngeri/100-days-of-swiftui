@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		259D951D23A15D3E0017FC50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259D951B23A15D3E0017FC50 /* LaunchScreen.storyboard */; };
 		259D952523A15D4C0017FC50 /* StarterDay1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259D952423A15D4C0017FC50 /* StarterDay1.swift */; };
 		25EE21FC23A2A5300031C2DB /* StarterDay2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EE21FB23A2A5300031C2DB /* StarterDay2.swift */; };
+		955CEAF523A375A10057D754 /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 955CEAF423A375A10057D754 /* SamplePackage */; };
+		95AFBFF723A36FB7005E60DB /* StarterDay3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AFBFF623A36FB7005E60DB /* StarterDay3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,7 @@
 		259D951E23A15D3E0017FC50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259D952423A15D4C0017FC50 /* StarterDay1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDay1.swift; sourceTree = "<group>"; };
 		25EE21FB23A2A5300031C2DB /* StarterDay2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDay2.swift; sourceTree = "<group>"; };
+		95AFBFF623A36FB7005E60DB /* StarterDay3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDay3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955CEAF523A375A10057D754 /* SamplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +73,7 @@
 				259D951823A15D3E0017FC50 /* Preview Content */,
 				259D952423A15D4C0017FC50 /* StarterDay1.swift */,
 				25EE21FB23A2A5300031C2DB /* StarterDay2.swift */,
+				95AFBFF623A36FB7005E60DB /* StarterDay3.swift */,
 			);
 			path = HotProspects;
 			sourceTree = "<group>";
@@ -97,6 +102,9 @@
 			dependencies = (
 			);
 			name = HotProspects;
+			packageProductDependencies = (
+				955CEAF423A375A10057D754 /* SamplePackage */,
+			);
 			productName = HotProspects;
 			productReference = 259D950D23A15D3C0017FC50 /* HotProspects.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +133,9 @@
 				Base,
 			);
 			mainGroup = 259D950423A15D3C0017FC50;
+			packageReferences = (
+				955CEAF323A375A10057D754 /* XCRemoteSwiftPackageReference "SamplePackage" */,
+			);
 			productRefGroup = 259D950E23A15D3C0017FC50 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95AFBFF723A36FB7005E60DB /* StarterDay3.swift in Sources */,
 				259D952523A15D4C0017FC50 /* StarterDay1.swift in Sources */,
 				259D951123A15D3C0017FC50 /* AppDelegate.swift in Sources */,
 				259D951323A15D3C0017FC50 /* SceneDelegate.swift in Sources */,
@@ -350,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		955CEAF323A375A10057D754 /* XCRemoteSwiftPackageReference "SamplePackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/SamplePackage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		955CEAF423A375A10057D754 /* SamplePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 955CEAF323A375A10057D754 /* XCRemoteSwiftPackageReference "SamplePackage" */;
+			productName = SamplePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 259D950523A15D3C0017FC50 /* Project object */;
 }
