@@ -13,22 +13,41 @@ import UserNotifications
 struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
     @State private var isShowingScanner = false
+    @State private var isShowingSortOption = false
+    @State var sort: SortType = .name
 
     enum FilterType {
         case none, contacted, uncontacted
     }
 
+    enum SortType: String, CaseIterable {
+        case name, recent
+    }
+
     let filter: FilterType
+
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        if self.filter == .none {
+                            if prospect.isContacted {
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundColor(.green)
+                            } else {
+                                Image(systemName: "questionmark.diamond")
+                                    .foregroundColor(.yellow)
+                            }
+                        }
                     }
                     .contextMenu {
                         Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted" ) {
@@ -42,17 +61,28 @@ struct ProspectsView: View {
                     }
                 }
             }
-                .navigationBarTitle(title)
-                .navigationBarItems(trailing: Button(action: {
-                    self.isShowingScanner = true
-                }) {
-                    Image(systemName: "qrcode.viewfinder")
-                    Text("Scan")
-                })
-                .sheet(isPresented: $isShowingScanner) {
-                    CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan)
-                }
+            .navigationBarTitle(title)
+            .navigationBarItems(leading: Button(action: { self.isShowingSortOption = true }) {
+                Image(systemName: "arrow.up.arrow.down")
+            }, trailing: Button(action: { self.isShowingScanner = true }) {
+                Image(systemName: "qrcode.viewfinder")
+                Text("Scan")
+            })
+            .sheet(isPresented: $isShowingScanner) {
+                CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan)
+            }
+            .actionSheet(isPresented: $isShowingSortOption) {
+                self.actionSheet
+            }
         }
+    }
+
+    var actionSheet: ActionSheet {
+        ActionSheet(title: Text("Choose how to sort"), buttons:
+            SortType.allCases.map { item in
+                ActionSheet.Button.default(Text(item.rawValue.capitalized), action: { self.sort = item })
+            }
+        )
     }
 
     var title: String {
@@ -69,11 +99,20 @@ struct ProspectsView: View {
     var filteredProspects: [Prospect] {
         switch filter {
         case .none:
-            return prospects.people
+            switch sort {
+            case .name: return prospects.people.sorted(by: { $0.name < $1.name })
+            case .recent: return prospects.people.sorted(by: { $0.date > $1.date })
+            }
         case .contacted:
-            return prospects.people.filter { $0.isContacted }
+            switch sort {
+            case .name: return prospects.people.filter { $0.isContacted }.sorted(by: { $0.name < $1.name })
+            case .recent: return prospects.people.filter { $0.isContacted }.sorted(by: { $0.date > $1.date })
+            }
         case .uncontacted:
-            return prospects.people.filter { !$0.isContacted }
+            switch sort {
+            case .name: return prospects.people.filter { !$0.isContacted }.sorted(by: { $0.name < $1.name })
+            case .recent: return prospects.people.filter { !$0.isContacted }.sorted(by: { $0.date > $1.date })
+            }
         }
     }
 

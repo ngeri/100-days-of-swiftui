@@ -10,6 +10,7 @@ import SwiftUI
 
 class Prospect: Identifiable, Codable {
     let id = UUID()
+    let date = Date()
     var name = "Anonymous"
     var emailAddress = ""
     fileprivate(set) var isContacted = false
@@ -20,14 +21,15 @@ class Prospects: ObservableObject {
     @Published private(set) var people: [Prospect]
 
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
-            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
-                self.people = decoded
-                return
-            }
-        }
+        let filename = FileManager.default.documentsURL.appendingPathComponent(Self.saveKey)
 
-        self.people = []
+        do {
+            let data = try Data(contentsOf: filename)
+            let decoded = try JSONDecoder().decode([Prospect].self, from: data)
+            self.people = decoded
+        } catch {
+            self.people = []
+        }
     }
 
     func toggle(_ prospect: Prospect) {
@@ -36,14 +38,24 @@ class Prospects: ObservableObject {
         save()
     }
 
-    private func save() {
-        if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
-        }
-    }
-
     func add(_ prospect: Prospect) {
         people.append(prospect)
         save()
+    }
+
+    private func save() {
+        do {
+            let filename = FileManager.default.documentsURL.appendingPathComponent(Self.saveKey)
+            let data = try JSONEncoder().encode(people)
+            try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("Unable to save data.")
+        }
+    }
+}
+
+private extension FileManager {
+    var documentsURL: URL {
+        urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
 }
