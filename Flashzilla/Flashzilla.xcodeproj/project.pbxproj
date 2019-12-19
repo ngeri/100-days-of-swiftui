@@ -14,6 +14,7 @@
 		2584D63023AAE18C00B1B760 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2584D62F23AAE18C00B1B760 /* Preview Assets.xcassets */; };
 		2584D63323AAE18C00B1B760 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2584D63123AAE18C00B1B760 /* LaunchScreen.storyboard */; };
 		2584D63D23AAE1F200B1B760 /* StarterDay1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584D63C23AAE1F200B1B760 /* StarterDay1.swift */; };
+		95A6CBC923ABD96200E628DF /* StarterDay2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6CBC823ABD96200E628DF /* StarterDay2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2584D63223AAE18C00B1B760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2584D63423AAE18C00B1B760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2584D63C23AAE1F200B1B760 /* StarterDay1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDay1.swift; sourceTree = "<group>"; };
+		95A6CBC823ABD96200E628DF /* StarterDay2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDay2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				2584D63423AAE18C00B1B760 /* Info.plist */,
 				2584D62E23AAE18C00B1B760 /* Preview Content */,
 				2584D63C23AAE1F200B1B760 /* StarterDay1.swift */,
+				95A6CBC823ABD96200E628DF /* StarterDay2.swift */,
 			);
 			path = Flashzilla;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				2584D63D23AAE1F200B1B760 /* StarterDay1.swift in Sources */,
 				2584D62723AAE18B00B1B760 /* AppDelegate.swift in Sources */,
 				2584D62923AAE18B00B1B760 /* SceneDelegate.swift in Sources */,
+				95A6CBC923ABD96200E628DF /* StarterDay2.swift in Sources */,
 				2584D62B23AAE18B00B1B760 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
