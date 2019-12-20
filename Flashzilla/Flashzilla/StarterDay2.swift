@@ -95,7 +95,7 @@ struct StarterDay2_6: View {
 struct StarterDay2_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            StarterDay2_1()
+            StarterDay2_6()
         }
     }
 }
