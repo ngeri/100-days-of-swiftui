@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25281DA823AFB4F2001B0179 /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25281DA723AFB4F2001B0179 /* EditCards.swift */; };
 		2584D62723AAE18B00B1B760 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584D62623AAE18B00B1B760 /* AppDelegate.swift */; };
 		2584D62923AAE18B00B1B760 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584D62823AAE18B00B1B760 /* SceneDelegate.swift */; };
 		2584D62B23AAE18B00B1B760 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584D62A23AAE18B00B1B760 /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25281DA723AFB4F2001B0179 /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 		2584D62323AAE18B00B1B760 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2584D62623AAE18B00B1B760 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2584D62823AAE18B00B1B760 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				2584D62E23AAE18C00B1B760 /* Preview Content */,
 				2584D63C23AAE1F200B1B760 /* StarterDay1.swift */,
 				95A6CBC823ABD96200E628DF /* StarterDay2.swift */,
+				25281DA723AFB4F2001B0179 /* EditCards.swift */,
 			);
 			path = Flashzilla;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				9594208623AD1BBA005FFB5B /* Card.swift in Sources */,
 				2584D62723AAE18B00B1B760 /* AppDelegate.swift in Sources */,
 				2584D62923AAE18B00B1B760 /* SceneDelegate.swift in Sources */,
+				25281DA823AFB4F2001B0179 /* EditCards.swift in Sources */,
 				95A6CBC923ABD96200E628DF /* StarterDay2.swift in Sources */,
 				2584D62B23AAE18B00B1B760 /* ContentView.swift in Sources */,
 			);

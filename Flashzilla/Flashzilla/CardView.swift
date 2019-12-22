@@ -10,8 +10,10 @@ import SwiftUI
 
 struct CardView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+    @Environment(\.accessibilityEnabled) var accessibilityEnabled
     @State var isShowingAnswer = false
     @State var offset = CGSize.zero
+    let feedback = UINotificationFeedbackGenerator()
     let card: Card
     var removal: (() -> Void)? = nil
 
@@ -34,13 +36,18 @@ struct CardView: View {
                 .shadow(radius: 10)
 
             VStack {
-                Text(card.prompt)
-                    .font(.largeTitle)
+                if accessibilityEnabled {
+                    Text(isShowingAnswer ? card.answer : card.prompt)
+                        .font(.largeTitle)
+                } else {
+                    Text(card.prompt)
+                        .font(.largeTitle)
 
-                if isShowingAnswer {
-                    Text(card.answer)
-                        .font(.title)
-                        .foregroundColor(.secondary)
+                    if isShowingAnswer {
+                        Text(card.answer)
+                            .font(.title)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
             .padding(20)
@@ -50,14 +57,19 @@ struct CardView: View {
         .rotationEffect(.degrees(Double(offset.width / 5)))
         .offset(x: offset.width * 5, y: 0)
         .opacity(2 - Double(abs(offset.width / 50)))
+        .accessibility(addTraits: .isButton)
         .gesture(
             DragGesture()
                 .onChanged { gesture in
                     self.offset = gesture.translation
+                    self.feedback.prepare()
                 }
 
                 .onEnded { _ in
                     if abs(self.offset.width) > 100 {
+                        if self.offset.width < 0 {
+                            self.feedback.notificationOccurred(.error)
+                        }
                         self.removal?()
                     } else {
                         self.offset = .zero
@@ -67,6 +79,7 @@ struct CardView: View {
         .onTapGesture {
             self.isShowingAnswer.toggle()
         }
+        .animation(.spring())
     }
 }
 
