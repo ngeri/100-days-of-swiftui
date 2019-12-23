@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var timeRemaining = 100
     @State private var isActive = true
     @State private var showingEditScreen = false
+    @State private var showingTimesUp = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -36,14 +37,7 @@ struct ContentView: View {
                     )
                 ZStack {
                     ForEach(0..<cards.count, id: \.self) { index in
-                        CardView(card: self.cards[index]) {
-                           withAnimation {
-                               self.removeCard(at: index)
-                           }
-                        }
-                        .stacked(at: index, in: self.cards.count)
-                        .allowsHitTesting(index == self.cards.count - 1)
-                        .accessibility(hidden: index < self.cards.count - 1)
+                        self.cardView(for: index)
                     }
                 }
                 .allowsHitTesting(timeRemaining > 0)
@@ -116,6 +110,8 @@ struct ContentView: View {
             guard self.isActive else { return }
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
+            } else {
+                self.showingTimesUp = true
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
@@ -129,7 +125,21 @@ struct ContentView: View {
         .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
             EditCards()
         }
+        .alert(isPresented: $showingTimesUp) {
+            Alert(title: Text("Time is up"), dismissButton: .default(Text("Reset"), action: { self.resetCards() }))
+        }
         .onAppear(perform: resetCards)
+    }
+
+    func cardView(for index: Int) -> some View {
+        CardView(card: self.cards[index]) { (success: Bool) in
+           withAnimation {
+                self.removeCard(at: index, success: success)
+           }
+        }
+        .stacked(at: index, in: self.cards.count)
+        .allowsHitTesting(index == self.cards.count - 1)
+        .accessibility(hidden: index < self.cards.count - 1)
     }
 
     func loadData() {
@@ -140,9 +150,18 @@ struct ContentView: View {
         }
     }
 
-    func removeCard(at index: Int) {
+    func removeCard(at index: Int, success: Bool = true) {
         guard index >= 0 else { return }
-        cards.remove(at: index)
+        if success {
+            cards.remove(at: index)
+        } else {
+            let card = cards.remove(at: index)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.cards.insert(card, at: 0)
+            }
+//            cards.move(fromOffsets: IndexSet(integer: index), toOffset: 0)
+        }
         if cards.isEmpty {
             isActive = false
         }
