@@ -20,29 +20,59 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                TextField("Enter your word", text: $newWord, onCommit: addNewWord)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .padding()
+            GeometryReader { geo in
+                VStack {
+                    TextField("Enter your word", text: self.$newWord, onCommit: self.addNewWord)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .padding()
 
-                List(usedWords, id: \.self) { word in
-                    HStack {
-                        Image(systemName: "\(word.count).circle")
-                        Text(word)
+                    List(self.usedWords + ["aaa", "aaaa", "aaa","aaaa", "aaa", "aaaa", "aaa", "aaaa", "aaa", "aaaa", "aaa", "aaaa", "aaa","aaaa", "aaa", "aaaa", "aaa", "aaaa", "aaa", "aaaa"], id: \.self) { word in
+                        self.cellView(word: word, globalGeo: geo)
+                            .accessibilityElement(children: .ignore)
+                            .accessibility(label: Text("\(word), \(word.count) letters"))
                     }
-                    .accessibilityElement(children: .ignore)
-                    .accessibility(label: Text("\(word), \(word.count) letters"))
+
+                    Text("State: \(self.points)")
                 }
-                
-                Text("State: \(self.points)")
+                .navigationBarTitle(self.rootWord)
+                .navigationBarItems(trailing: Button(action: self.startGame) { Text("Start Over") } )
+                .onAppear(perform: self.startGame)
+                .alert(isPresented: self.$showingError) {
+                    Alert(title: Text(self.errorTitle), message: Text(self.errorMessage), dismissButton: .default(Text("OK")))
+                }
             }
-            .navigationBarTitle(rootWord)
-            .navigationBarItems(trailing: Button(action: startGame) { Text("Start Over") } )
-            .onAppear(perform: startGame)
-            .alert(isPresented: $showingError) {
-                Alert(title: Text(self.errorTitle), message: Text(self.errorMessage), dismissButton: .default(Text("OK")))
+        }
+    }
+
+    func cellView(word: String, globalGeo: GeometryProxy) -> some View {
+        GeometryReader { geo in
+            HStack {
+                Image(systemName: "\(word.count).circle")
+                    .foregroundColor(self.calcColor(localGeo: geo, globalGeo: globalGeo))
+                Text(word)
+                Spacer()
             }
+            .offset(CGSize(width: self.calcOffset(localGeo: geo, globalGeo: globalGeo), height: 0))
+        }
+    }
+
+    private func calcColor(localGeo: GeometryProxy, globalGeo: GeometryProxy) -> Color {
+        let height = globalGeo.size.height + globalGeo.safeAreaInsets.top
+        let originY = localGeo.frame(in: .global).origin.y
+        let ratio = Double((height - originY)/height)
+        return Color(red: ratio, green: 1 - ratio, blue: 1 - ratio)
+    }
+
+    private func calcOffset(localGeo: GeometryProxy, globalGeo: GeometryProxy) -> CGFloat {
+        let height = globalGeo.size.height + globalGeo.safeAreaInsets.top
+        let origin = localGeo.frame(in: .global).origin
+
+        let a: CGFloat = 200
+        if height - origin.y < a {
+            return (1 - (height - origin.y)/a) * globalGeo.size.width
+        } else {
+            return 0
         }
     }
     
