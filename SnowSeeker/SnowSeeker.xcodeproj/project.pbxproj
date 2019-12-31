@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2519063223BB60C900B12576 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519063123BB60C900B12576 /* FilterView.swift */; };
 		2549382423B9597E00C21FEE /* Resort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2549382323B9597E00C21FEE /* Resort.swift */; };
 		2549382623B95A5900C21FEE /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2549382523B95A5900C21FEE /* Bundle-Decodable.swift */; };
 		2549382723B95AD800C21FEE /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2549382123B9595B00C21FEE /* resorts.json */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2519063123BB60C900B12576 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		2549382123B9595B00C21FEE /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resorts.json; sourceTree = "<group>"; };
 		2549382323B9597E00C21FEE /* Resort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resort.swift; sourceTree = "<group>"; };
 		2549382523B95A5900C21FEE /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				25B4331923B7FEE500D22BEA /* TechniquesDay1.swift */,
 				2549382323B9597E00C21FEE /* Resort.swift */,
 				2549382523B95A5900C21FEE /* Bundle-Decodable.swift */,
+				2519063123BB60C900B12576 /* FilterView.swift */,
 			);
 			path = SnowSeeker;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2519063223BB60C900B12576 /* FilterView.swift in Sources */,
 				2549382F23B95FBC00C21FEE /* ResortDetailsView.swift in Sources */,
 				2549382423B9597E00C21FEE /* Resort.swift in Sources */,
 				25F6980C23BAA6CD0089C640 /* Facility.swift in Sources */,
